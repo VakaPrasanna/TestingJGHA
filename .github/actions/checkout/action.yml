@@ -1,0 +1,6 @@
+name: Checkout Action
+description: Enhanced composite action for Checkout stage
+inputs: {}
+runs:
+  using: composite
+  steps: []

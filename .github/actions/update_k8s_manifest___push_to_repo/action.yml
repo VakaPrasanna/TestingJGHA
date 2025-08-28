@@ -1,0 +1,15 @@
+name: Update K8S manifest & push to Repo Action
+description: Enhanced composite action for Update K8S manifest & push to Repo stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: cat deploy.yaml
+    shell: bash
+  - name: Run command 2
+    run: sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
+    shell: bash
+  - name: Run command 3
+    run: cat deploy.yaml
+    shell: bash

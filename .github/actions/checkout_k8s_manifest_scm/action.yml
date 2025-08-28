@@ -1,0 +1,6 @@
+name: Checkout K8S manifest SCM Action
+description: Enhanced composite action for Checkout K8S manifest SCM stage
+inputs: {}
+runs:
+  using: composite
+  steps: []
