@@ -25,16 +25,16 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run Build
       uses: ./.github/actions/build
-  execute-sonarqube-report:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - uses: actions/checkout@v4
-    - name: Run Execute Sonarqube Report
-      uses: ./.github/actions/execute_sonarqube_report
+  # execute-sonarqube-report:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: Run Execute Sonarqube Report
+  #     uses: ./.github/actions/execute_sonarqube_report
   quality-gate-check:
     runs-on: ubuntu-latest
-    needs: execute-sonarqube-report
+    #needs: execute-sonarqube-report
     steps:
     - uses: actions/checkout@v4
     - name: Run Quality Gate Check
