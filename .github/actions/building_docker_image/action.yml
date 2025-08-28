@@ -1,0 +1,9 @@
+name: Building Docker Image Action
+description: Enhanced composite action for Building Docker Image stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Build Docker image
+    run: docker build -t . -t ${REPOSITORY_URI}:mavenwebapp-${COMMIT}"
+    shell: bash

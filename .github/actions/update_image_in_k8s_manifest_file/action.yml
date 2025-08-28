@@ -1,0 +1,12 @@
+name: Update image in K8s manifest file Action
+description: Enhanced composite action for Update image in K8s manifest file stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: '#!/bin/bash'
+    shell: bash
+  - name: Run command 2
+    run: sed -i 's/VERSION/$COMMIT/g' deployment.yaml
+    shell: bash

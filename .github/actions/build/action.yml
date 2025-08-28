@@ -1,0 +1,9 @@
+name: Build Action
+description: Enhanced composite action for Build stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: mvn clean package
+    shell: bash

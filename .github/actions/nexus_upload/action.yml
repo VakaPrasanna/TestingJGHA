@@ -1,0 +1,6 @@
+name: Nexus Upload Action
+description: Enhanced composite action for Nexus Upload stage
+inputs: {}
+runs:
+  using: composite
+  steps: []

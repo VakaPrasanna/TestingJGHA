@@ -1,0 +1,9 @@
+name: Login to AWS ECR Action
+description: Enhanced composite action for Login to AWS ECR stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: /usr/local/bin/aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
+    shell: bash

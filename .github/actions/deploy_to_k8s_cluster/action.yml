@@ -1,0 +1,18 @@
+name: Deploy to K8s cluster Action
+description: Enhanced composite action for Deploy to K8s cluster stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: '#!/bin/bash'
+    shell: bash
+  - name: Run command 2
+    run: sed -i 's/$COMMIT/VERSION/g' deployment.yaml
+    shell: bash
+  - name: Run command 3
+    run: /usr/local/bin/kubectl apply -f deployment.yaml --record=true
+    shell: bash
+  - name: Run kubectl command
+    run: kubectl apply -f deployment.yaml --record=true
+    shell: bash

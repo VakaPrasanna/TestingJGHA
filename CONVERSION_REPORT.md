@@ -1,17 +1,23 @@
 # Jenkins to GitHub Actions Conversion Report
 
 ## Conversion Summary
-- **Stages converted**: 5
-- **Git steps detected**: 7
-- **SonarQube integrations**: 0
+- **Stages converted**: 10
+- **Git steps detected**: 1
+- **SonarQube integrations**: 1
 - **Docker operations**: 2
 - **Approval steps**: 0
-- **Credentials detected**: 1
+- **Credentials detected**: 2
 
 ## Required GitHub Secrets
 Configure these secrets in your repository settings:
 
-- `F87A34A8_0E09_45E7_B9CF_6DC68FEAC670`: f87a34a8-0e09-45e7-b9cf-6dc68feac670 credential
+- `NEXUS_CRED`: Nexus-Cred credential
+- `SONARQUBE_CRED`: SONARQUBE-CRED credential
+
+## SonarQube Setup Required
+Add these additional secrets:
+- `SONAR_TOKEN`: SonarQube authentication token
+- `SONAR_HOST_URL`: SonarQube server URL
 
 ## Docker Setup Required
 Add these secrets for Docker operations:
@@ -20,20 +26,35 @@ Add these secrets for Docker operations:
 
 ## Stages Breakdown
 
-### 1. Checkout
-- Features: Credentials: f87a34a8-0e09-45e7-b9cf-6dc68feac670
+### 1. Code checkout
+- Standard shell commands
 
-### 2. Build Docker
+### 2. Build
+- Standard shell commands
+
+### 3. Execute Sonarqube Report
+- Standard shell commands
+
+### 4. Quality Gate Check
+- Features: Credentials: SONARQUBE-CRED
+
+### 5. Nexus Upload
+- Features: Credentials: Nexus-Cred
+
+### 6. Login to AWS ECR
+- Standard shell commands
+
+### 7. Building Docker Image
 - Features: Docker operations
 
-### 3. Push the artifacts
+### 8. Pushing Docker image into ECR
 - Features: Docker operations
 
-### 4. Checkout K8S manifest SCM
-- Features: Credentials: f87a34a8-0e09-45e7-b9cf-6dc68feac670
+### 9. Update image in K8s manifest file
+- Standard shell commands
 
-### 5. Update K8S manifest & push to Repo
-- Features: Credentials: f87a34a8-0e09-45e7-b9cf-6dc68feac670
+### 10. Deploy to K8s cluster
+- Features: Kubernetes operations
 
 ## Next Steps
 1. Review the generated workflow file

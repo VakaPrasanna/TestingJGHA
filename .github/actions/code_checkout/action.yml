@@ -1,0 +1,6 @@
+name: Code checkout Action
+description: Enhanced composite action for Code checkout stage
+inputs: {}
+runs:
+  using: composite
+  steps: []

@@ -1,0 +1,9 @@
+name: Execute Sonarqube Report Action
+description: Enhanced composite action for Execute Sonarqube Report stage
+inputs: {}
+runs:
+  using: composite
+  steps:
+  - name: Run command 1
+    run: mvn sonar:sonar
+    shell: bash

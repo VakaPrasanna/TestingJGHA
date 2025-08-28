@@ -1,0 +1,6 @@
+name: Quality Gate Check Action
+description: Enhanced composite action for Quality Gate Check stage
+inputs: {}
+runs:
+  using: composite
+  steps: []
