@@ -7,10 +7,11 @@ name: CI
     - main
   pull_request: {}
 env:
-  AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
-  AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
   IMAGE_REPO_NAME: mavenwebapp
-  REPOSITORY_URI: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}
+  COMMIT: ${{ github.sha }}
+  REPOSITORY_URI: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_DEFAULT_REGION }}.amazonaws.com/mavenwebapp
 jobs:
   code-checkout:
     runs-on: ubuntu-latest
