@@ -5,5 +5,5 @@ runs:
   using: composite
   steps:
   - name: Build Docker image
-    run: docker build -t . -t ${REPOSITORY_URI}:mavenwebapp-${COMMIT}"
+    run: docker build -t "${REPOSITORY_URI}:mavenwebapp-${COMMIT}" .
     shell: bash
